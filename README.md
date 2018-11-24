@@ -1,0 +1,2 @@
+# Task-3
+Create a sample website which will show a list of league/contest list, on selecting a contest, a teams list will be shown on the right of the team-list. There are two-type users - contest-owner and team-owner and players. Contest owners can see only teams with player-list of his contest, Team owners can see all players but a player can see the teams and contests he is in. Frontend must be in vuejs.
