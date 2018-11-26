@@ -6,8 +6,10 @@
  */
 
 require('./bootstrap');
-
+import Vue from 'vue'
 window.Vue = require('vue');
+import VueRouter from 'vue-router'
+Vue.use(VueRouter);
 
 /**
  * The following block of code may be used to automatically register your
@@ -18,7 +20,23 @@ window.Vue = require('vue');
  */
 
 Vue.component('example-component', require('./components/ExampleComponent.vue'));
+Vue.component('left-sidebar', require('./components/LeftSideBarComponent.vue'));
+let Body = require('./components/MainBody.vue');
+let PlayerList = require('./components/PlayerList.vue');
+let PlayerList2 = require('./components/PlayerList2.vue');
+let Team2 = require('./components/Team2.vue');
 
+const routes = [
+    { path: '/body', component: Body },
+    { path: '/playerlist', component: PlayerList },
+    { path: '/playerlist2', component: PlayerList2 },
+    { path: '/team2', component: Team2 }
+];
+
+const router = new VueRouter({
+    mode: 'history',
+    routes // short for `routes: routes`
+});
 // const files = require.context('./', true, /\.vue$/i)
 
 // files.keys().map(key => {
@@ -32,5 +50,6 @@ Vue.component('example-component', require('./components/ExampleComponent.vue'))
  */
 
 const app = new Vue({
-    el: '#app'
+    el: '#app',
+    router
 });

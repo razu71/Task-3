@@ -12,5 +12,9 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('contest');
 });
+
+Route::get('/{name}',function (){
+    return redirect('/');
+})->where('name' , '[a-zA-Z]+');
